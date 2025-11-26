@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor</title>
+
+    <!--Bootstrap 3 CSS--> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<style>
+
+body {
+    font-family: Garamond, serif;
+    font-size: 20px;
+    background-color: #93C572;
+  }
+
+  .navbar-custom {
+  background-color: #93C572;
+  }
+
+  .nav-link.active{
+     color: whitesmoke !important;
+     font-weight: bold !important;
+  }
+
+  .nav-link i {
+    color: white;
+    vertical-align: middle;
+}
+
+  .image-wrapper{
+    position: relative;
+  }
+
+  .image-wrapper:hover .centered {
+    transform: translate(-50%, -60%); /* naik */
+    letter-spacing: 3px;
+    transition: 0.4s ease; 
+}
+
+  .image-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35); /* overlay gelap */
+    z-index: 1;
+  }
+
+  .centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size:xx-large;
+  font-weight: bold;
+  color: white;
+  z-index: 2;
+  transition: 0.4s ease; /* penting supaya animation smooth */
+    }
+
+@media (max-width: 768px) {
+.centered {
+        font-size: 18px; /* kecil sikit untuk phone */
+    }
+
+.fit {
+        height: 50vh; /* kurang tinggi supaya tak potong */
+    }
+}
+
+  .fit {
+    width: 100%;
+    height: 83vh;
+    object-fit: cover;
+  }
+
+
+
+   
+    
+
+</style>
+<body>
+  <!--Icon Bootstrap-->
+ <nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid d-flex align-items-center">
+    <div class="d-flex align-items-center">
+      <a class="navbar-brand d-flex align-items-center ms-5" href="homepage.html">
+        <img src="img/carebasket.jpeg"  alt="carebasket" style="border-radius:50%; object-fit:cover;" width="65" height="65">
+      </a>
+      
+      <!--Nav menu-->
+   <ul class="navbar-nav flex-row ms-3">
+  <li class="nav-item ms-2">
+    <a class="nav-link active" href="items.html">Items</a>
+  </li>
+  <li class="nav-item ms-2">
+    <a class="nav-link active" href="dashboard">Dashboard</a>
+  </li>
+  <li class="nav-item ms-2">
+    <a class="nav-link active" href="recipient.html">Recipients</a>
+  </li>
+</ul>
+</div>
+
+<!--Profile-->
+<ul class="navbar-nav ms-auto me-5">
+  <li class="nav-item">
+  <a class="nav-link" href="profile.html">
+        <i class="bi bi-person-circle h1"></i>
+      </a>
+    </li>
+</ul>
+</div>
+</div>
+</nav>
+
+<!--welcome page donor-->
+  <div class="image-wrapper">
+    <img src="img/welcome.jpg" class="fit" alt="welcome_donor">
+    <div class="centered">
+      <b>WELCOME DONOR !!!</b>
+      <br>
+  </div></div>
+  <br>
+
+
+</body>
+</html>
