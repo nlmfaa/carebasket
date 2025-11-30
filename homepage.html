@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donor</title>
 
+    <!--Stle css-->
+    <link rel="stylesheet" href="style.css">
+
     <!--Bootstrap 3 CSS--> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
@@ -20,13 +23,14 @@
 body {
     font-family: Garamond, serif;
     font-size: 20px;
-    background-color: #93C572;
+    background-color: #64A263;
   }
 
   .navbar-custom {
-  background-color: #93C572;
-  }
-
+  background-color: #64A263;
+  padding-left: 10px;
+  margin-bottom: 20px; 
+}
   .nav-link.active{
      color: whitesmoke !important;
      font-weight: bold !important;
@@ -37,38 +41,49 @@ body {
     vertical-align: middle;
 }
 
-  .image-wrapper{
+.image-wrapper {
     position: relative;
-  }
-
-  .image-wrapper:hover .centered {
-    transform: translate(-50%, -60%); /* naik */
-    letter-spacing: 3px;
-    transition: 0.4s ease; 
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
-  .image-wrapper::after {
+.image-wrapper:hover .centered {
+    transform: translate(-50%, -60%);
+    letter-spacing: 3px;
+    transition: 0.4s ease;
+}
+
+.fit {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.image-wrapper::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.35); /* overlay gelap */
+    inset: 0;
+    background: rgba(0,0,0,0.35);
     z-index: 1;
-  }
+    pointer-events: none; 
+}
 
-  .centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size:xx-large;
-  font-weight: bold;
-  color: white;
-  z-index: 2;
-  transition: 0.4s ease; /* penting supaya animation smooth */
-    }
+/* text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    z-index: 2;
+    transition: 0.4s ease;
+}
+
 
 @media (max-width: 768px) {
 .centered {
@@ -80,62 +95,132 @@ body {
     }
 }
 
-  .fit {
-    width: 100%;
-    height: 83vh;
-    object-fit: cover;
-  }
+ .donation-container {
+    background: #64A263;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
 
+.donation-card {
+    width: 60%;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+}
 
+.donation-title {
+    text-align: center;
+    font-size: 32px;
+    color: rgb(21, 78, 21);
+    margin-bottom: 25px;
+    font-weight: bold;
+}
 
-   
+.donation-table th,
+.donation-table td {
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.donation-table tbody tr {
+    border-bottom: 1px solid rgb(21, 78, 21);
+}
     
 
 </style>
 <body>
-  <!--Icon Bootstrap-->
- <nav class="navbar navbar-expand-lg navbar-custom">
-  <div class="container-fluid d-flex align-items-center">
-    <div class="d-flex align-items-center">
-      <a class="navbar-brand d-flex align-items-center ms-5" href="homepage.html">
-        <img src="img/carebasket.jpeg"  alt="carebasket" style="border-radius:50%; object-fit:cover;" width="65" height="65">
-      </a>
-      
-      <!--Nav menu-->
-   <ul class="navbar-nav flex-row ms-3">
-  <li class="nav-item ms-2">
-    <a class="nav-link active" href="items.html">Items</a>
-  </li>
-  <li class="nav-item ms-2">
-    <a class="nav-link active" href="dashboard">Dashboard</a>
-  </li>
-  <li class="nav-item ms-2">
-    <a class="nav-link active" href="recipient.html">Recipients</a>
-  </li>
-</ul>
-</div>
+  
+<nav class="navbar navbar-expand-lg navbar-custom"> 
+    <div class="container-fluid d-flex align-items-center"> 
+        <div class="d-flex align-items-center"> 
+            <a class="navbar-brand d-flex align-items-center ms-5" href="homepage.html"> 
+                <img src="img/carebasket.jpeg" alt="carebasket" style="border-radius:50%; object-fit:cover;" width="65" height="65"> 
+            </a> 
+            
+    <!--Nav menu--> 
+    <ul class="navbar-nav flex-row ms-3"> 
+        <li class="nav-item ms-2"> 
+            <a class="nav-link active" href="items.html">Items</a> 
+        </li> 
+    <li class="nav-item ms-2"> 
+        <a class="nav-link active" href="dashboard">Dashboard</a> 
+    </li> 
+    <li class="nav-item ms-2">
+         <a class="nav-link active" href="recipient.html">Recipients</a> 
+        </li> 
+    </ul> 
+</div> 
 
-<!--Profile-->
-<ul class="navbar-nav ms-auto me-5">
-  <li class="nav-item">
-  <a class="nav-link" href="profile.html">
-        <i class="bi bi-person-circle h1"></i>
-      </a>
-    </li>
-</ul>
+    <!--Profile--> 
+    <ul class="navbar-nav ms-auto me-5"> 
+        <li class="nav-item"> 
+            <a class="nav-link" href="profile.html"> 
+                <i class="bi bi-person-circle h1">
+</i> 
+</a> 
+</li> 
+</ul> 
 </div>
-</div>
+</div> 
 </nav>
+
+
 
 <!--welcome page donor-->
   <div class="image-wrapper">
-    <img src="img/welcome.jpg" class="fit" alt="welcome_donor">
+    <img src="img/welcome.jpeg" class="fit" alt="welcome_donor">
     <div class="centered">
-      <b>WELCOME DONOR !!!</b>
+      <b>Welcome</b>
+      <b>Back</b>
+      <b>Daniel</b>
+      <b>!</b>
       <br>
   </div></div>
   <br>
 
+   <div class="donation-container">
+    <div class="donation-card">
+
+        <h2 class="donation-title">Your Previous Donation</h2>
+
+        <table class="table donation-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Total Items</th>
+                    <th>Donate To</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>12th March 2025</td>
+                    <td>12 Items</td>
+                    <td>Desa Anak Yatim Budi</td>
+                </tr>
+
+                <tr>
+                    <td>27th April 2025</td>
+                    <td>8 Items</td>
+                    <td>Kediaman Emas Cemerlang</td>
+                </tr>
+
+                <tr>
+                    <td>18th August 2025</td>
+                    <td>5 Items</td>
+                    <td>Rumah Penjagaan Harmoni Ria</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+<br><br>
 
 </body>
 </html>
