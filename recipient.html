@@ -72,9 +72,11 @@ body {
 
 .product-container {
     display: flex;
-    gap: 20px;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center; /* penting */
+    gap: 20px;
+    max-width: 1100px; /* paksa semua section ada width sama */
+    margin: 0 auto; /* center */
 }
 
 .flip-box {
@@ -405,6 +407,7 @@ body {
     <div class="product-container">
 
         <!-- BOX 1 -->
+         
         <div class="flip-box">
             <div class="flip-box-inner">
 
@@ -694,18 +697,18 @@ body {
       </div>
     </div>
     
-    <br>
-    </div>
+</div>
 
 <!-- Orphanage Home Section-->
 <div id="orphanSection" class="collapse mt-4">
-    <div class="text-center mb-3">
+   <div class="text-center mb-3">
         <p><b>✿.｡.:*Orphanages*:.｡.✿</b></p>
     </div>
 
     <div class="product-container">
 
         <!-- BOX 1 -->
+         
         <div class="flip-box">
             <div class="flip-box-inner">
 
@@ -806,13 +809,12 @@ body {
                     <p>Poscode: 63000</p>
                     <a href="success.html?home=Orphanages:Perlindungan Kasih Sayang" class="btn btn-light mt-3">Select</a>
                 </div>
-
           </div>
-      </div>
-
-  </div>
+    </div>
 </div>
+
 <br>
+</div>
 
   
 </body>
