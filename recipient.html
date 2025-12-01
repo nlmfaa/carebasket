@@ -53,34 +53,9 @@ body {
     pointer-events: none;
 }
 
-.back-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;       /* size bulat */
-    height: 40px;
-    background-color:whitesmoke;
-    color: black;
-    border: 2px solid whitesmoke;   /* <-- BORDER */
-    border-radius: 50%;       /* <-- BULAT */
-    font-size: 24px;
-    text-decoration: none;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-.previous.round {
-    border-radius: 100%;
-}
-
 .text-center{
     color: black;
     font-size: 25px;
-}
-
-.back-button:hover {
-    background-color: pink;
-    color: white;
 }
 
 .btn-outline-theme {
@@ -189,36 +164,43 @@ body {
 </style>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-custom">
-  <div class="container-fluid d-flex align-items-center">
+<nav class="navbar navbar-expand-lg navbar-custom"> 
+    <div class="container-fluid d-flex align-items-center"> 
+        <div class="d-flex align-items-center"> 
+            <a class="navbar-brand d-flex align-items-center ms-5" href="homepage.html"> 
+                <img src="img/carebasket.jpeg" alt="carebasket" style="border-radius:50%; object-fit:cover;" width="65" height="65"></a> 
+            
+    <!--Nav menu--> 
+    
+    <ul class="navbar-nav flex-row ms-3"> 
+        <li class="nav-item ms-2"> 
+            <a class="nav-link active" href="items.html">Items</a> 
+        </li> 
+    <li class="nav-item ms-2"> 
+        <a class="nav-link active" href="dashboard">Dashboard</a> 
+    </li> 
+    <li class="nav-item ms-2">
+         <a class="nav-link active" href="recipient.html">Recipients</a> 
+        </li> 
+    </ul> 
+</div> 
 
-    <!-- Logo kiri -->
-    <a class="navbar-brand d-flex align-items-center ms-5" href="homepage.html">
-      <img src="img/carebasket.jpeg" alt="carebasket"style="border-radius:50%; object-fit:cover;" width="65" height="65">
-    </a>
-
-    <!-- Title di tengah -->
-    <h4 class="nav-title">Recipients</h4>
-
-    <!-- Profile icon kanan -->
-    <ul class="navbar-nav me-5">
-      <li class="nav-item">
-        <a class="nav-link" href="profile.html">
-          <i class="bi bi-person-circle h1"></i>
-        </a>
-      </li>
-    </ul>
-
-  </div>
+    <!--Profile--> 
+    <ul class="navbar-nav ms-auto me-5"> 
+        <li class="nav-item"> 
+            <a class="nav-link" href="profile.html"> 
+                <i class="bi bi-person-circle h1"></i> 
+            </a> 
+        </li> 
+    </ul> 
+</div>
+</div> 
 </nav>
 
 <br><br>
 
 <div class="container">
   <div class="row align-items-center">
-
-    <!--Back button to item.html-->
-    <a onclick="history.back()" class="back-button previous round">&#8249;</a>
 
     <!-- FILTER BUTTONS -->
 <div class="text-center mt-2">
@@ -532,9 +514,7 @@ body {
 <!-- Welfare Home Section-->
 <div id="welfareSection" class="collapse mt-4">
     <div class="text-center mb-3">
-        <hr style="height: 5px; background-color: rgb(227, 92, 114); border: none;">
         <p><b>✿.｡.:*Welfare Home*:.｡.✿</b></p>
-        <hr style="height: 5px; background-color: rgb(227, 92, 114); border: none;">
     </div>
 
     <div class="product-container">
@@ -635,10 +615,8 @@ body {
 
 <!-- Nursing Home Section-->
 <div id="nursingSection" class="collapse mt-4">
-        <div class="text-center mb-3">
-            <hr style="height: 5px; background-color: rgb(227, 92, 114); border: none;">
+    <div class="text-center mb-3">
         <p><b>✿.｡.:*Nursing Home*:.｡.✿</b></p>
-            <hr style="height: 5px; background-color: rgb(227, 92, 114); border: none;">
     </div>
 
     <div class="product-container">
@@ -721,10 +699,8 @@ body {
 
 <!-- Orphanage Home Section-->
 <div id="orphanSection" class="collapse mt-4">
-  <div class="text-center mb-3">
-    <hr style="height: 5px; background-color: rgb(227, 92, 114); border: none;">
+    <div class="text-center mb-3">
         <p><b>✿.｡.:*Orphanages*:.｡.✿</b></p>
-    <hr style="height: 5px; background-color: rgb(227, 92, 114); border: none;">
     </div>
 
     <div class="product-container">
