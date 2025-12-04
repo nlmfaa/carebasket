@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Care Basket - Login</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- Bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+</head>
+
+<style>
+
+body {
+  margin: 0; 
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif;
+  height: 100vh;
+}
+
+footer {
+    color: black;
+    text-align: center;
+    padding: 2px 0;
+    font-size: 12px;
+  }
+
+.kiri-img {
+  width: 30%;
+  background-size: cover;
+  background-position: center;
+}
+
+.kanan-form {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #64a263;
+}
+
+.login-wrap {
+  display: flex;
+  min-height: 100vh;
+}
+
+.logo-circle {
+  display: flex;
+  width: 120px;             
+  height: 120px;            
+  border-radius: 50%;       
+  overflow: hidden;         
+  margin: 0px auto 10px;
+  border: 2px solid #FAA0A0;
+}
+
+.login-card {
+  background: #FFF5EE;
+  padding: 30px;
+  border-radius: 20px;
+  width: 70%;
+  box-shadow: 0 4px 6px rgba(27, 25, 26, 0.555);
+  text-align: left;
+}
+
+.btn-login {
+      background-color: #FAA0A0;
+      color: black;
+      font-weight: bold;
+    }
+
+  .btn-login a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      transition: color 0.3s ease-in-out;
+}
+
+ @media (max-width: 900px) {
+      .kiri-img {
+        display: none;
+      }
+      .kanan-form{
+        width: 100%;
+        padding: 15px;
+      }
+      .login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+  }
+    }
+</style>
+
+<body>
+
+  <div class="login-wrap">
+ <div class="kiri-img" style="background-image: url(image/login.jpg);"></div>
+
+
+<div class="kanan-form">
+  <div class="login-card">
+
+    <div class="logo-circle"><img src="image/logo.jpg"></div>
+
+<div class="mb-2" style="font-size: 30px; text-align: center;"><b>Login Here!</b></div>
+
+<form action="homepage.html" method="get">
+  <div class="form-group">
+    <label for="email"><b>Email: </b></label>
+    <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
+  </div>
+
+  <div class="form-group mt-2">
+    <label for="password"><b>Password: </b></label>
+    <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password">
+  </div>
+
+  <button type="submit" class="btn btn-login w-50 mt-3 mb-3"><a href="homepage.html">Submit</a></button>
+
+</form>
+     <footer>
+            <p>&copy; 2025 Care Basket. All rights reserved.</p>
+      </footer>
+  </div>
+</div>
+</div>
+
+
+</body>
+</html>

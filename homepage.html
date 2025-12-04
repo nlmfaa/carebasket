@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor</title>
+
+    <!--Bootstrap 3 CSS--> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+</head>
+<style>
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    background-color: #64a263;
+  }
+
+  .navbar-custom {
+  background-color: #64a263;
+  padding-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  .nav-link.active{
+     color: whitesmoke !important;
+     font-weight: bold !important;
+  }
+
+  .nav-link i {
+    color: white;
+    vertical-align: middle;
+}
+
+  .image-wrapper{
+    position: relative;
+  }
+
+  .image-wrapper:hover .centered {
+    transform: translate(-50%, -60%); /* naik */
+    letter-spacing: 3px;
+    transition: 0.4s ease; 
+}
+
+  .image-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35); /* overlay gelap */
+    z-index: 1;
+  }
+
+  .centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size:xx-large;
+  font-weight: bold;
+  color: white;
+  z-index: 2;
+  transition: 0.4s ease; /* penting supaya animation smooth */
+    }
+
+@media (max-width: 768px) {
+.centered {
+        font-size: 18px; /* kecil sikit untuk phone */
+    }
+
+.fit {
+        height: 50vh; /* kurang tinggi supaya tak potong */
+    }
+}
+
+  .fit {
+    width: 100%;
+    height: 83vh;
+    object-fit: cover;
+  }
+
+footer {
+    color: black;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 12px;
+  }
+
+   
+    
+
+</style>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid">
+
+    <!-- Logo -->
+    <a class="navbar-brand ms-3" href="homepage.html">
+      <img src="image/logo.jpg" alt="carebasket"
+        style="border-radius:50%; object-fit:cover;"
+        width="55" height="55">
+    </a>
+
+    <!-- BURGER BUTTON -->
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarMenu"
+      aria-controls="navbarMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="navbarMenu">
+
+      <!-- Menu -->
+      <ul class="navbar-nav ms-3">
+        <li class="nav-item">
+          <a class="nav-link active" href="item.html">Items</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="dashboard.html">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="recipient.html">Recipients</a>
+        </li>
+      </ul>
+
+      <!-- Profile -->
+      <ul class="navbar-nav ms-auto me-3">
+        <li class="nav-item">
+          <a class="nav-link" href="profile.html">
+            <i class="bi bi-person-circle h3"></i>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<!--welcome page donor-->
+  <div class="image-wrapper">
+    <img src="image/welcome.jpg" class="fit" alt="welcome_donor">
+    <div class="centered">
+      <b>WELCOME DONOR !!!</b>
+      <br>
+  </div></div>
+  <br>
+
+  <footer>
+         <p>&copy; 2025 Care Basket. All rights reserved.</p>
+    </footer>
+
+
+
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Items</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- Bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+</head>
+
+<style>
+
+body {
+  margin: 0; 
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  box-sizing: border-box;
+  background-color: #FFF5EE;
+  font-size: 20px;
+  
+}
+  .navbar-custom {
+  background-color: #64A263;
+  padding-left: 10px;
+  margin-bottom: 20px; 
+}
+  .nav-link.active{
+     color: whitesmoke !important;
+     font-weight: bold !important;
+  }
+
+  .nav-link i {
+    color: white;
+    vertical-align: middle;
+}
+
+.card-item {
+  background: #F7D7D7;
+  padding: 30px;
+  border-radius: 20px;
+  width: 70%;
+  margin: 40px auto;
+  box-shadow: 0 4px 6px rgba(27, 25, 26, 0.555);
+  
+}
+
+.table-responsive-md {
+  text-align: center;
+}
+
+.p-button {
+  text-align: center;
+  margin: 20px;
+  border-radius: 10px;
+}
+.p-button a {
+  text-decoration: none; 
+  color: #333; 
+  font-weight: bold;
+  padding: 15px 32px;
+  border-radius: 5px; 
+  display: inline-block;
+  margin: 5px;
+}
+.p-button a:hover {
+  background-color: #FAA0A0; 
+  color: white; 
+  border-radius: 5px; 
+}
+
+.btn a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      transition: color 0.3s ease-in-out;
+}
+
+
+.cart-card {
+  background: #F7D7D7;
+  padding: 30px;
+  border-radius: 20px;
+  width: 50%;
+  margin: 40px auto;
+  box-shadow: 0 4px 6px rgba(27, 25, 26, 0.555);
+}
+
+.dark-mode-toggle{
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit;
+    }
+
+    .dark-mode-toggle:hover{
+      opacity: 0.7;
+    }
+
+[data-bs-theme="dark"] body {
+  background-color: black;
+}
+
+[data-bs-theme="dark"] .p-button a, 
+[data-bs-theme="dark"] footer {
+    color: #f1f1f1;
+}
+
+[data-bs-theme="dark"] .card-item h3, 
+[data-bs-theme="dark"] .cart-card h3,
+[data-bs-theme="dark"] .cart-card h5,
+[data-bs-theme="dark"] .cart-items,
+[data-bs-theme="dark"] .price-text {
+    color: black;
+}
+
+footer {
+    color: black;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 12px;
+  }
+
+@media (max-width: 768px) {
+  .card-item {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+
+</style>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid">
+
+    <!-- Logo -->
+    <a class="navbar-brand ms-3" href="homepage.html">
+      <img src="image/logo.jpg" alt="carebasket"
+        style="border-radius:50%; object-fit:cover;"
+        width="55" height="55">
+    </a>
+
+    <!-- BURGER BUTTON -->
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarMenu"
+      aria-controls="navbarMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- COLLAPSIBLE CONTENT -->
+    <div class="collapse navbar-collapse" id="navbarMenu">
+
+      <!-- Menu -->
+      <ul class="navbar-nav ms-3">
+        <li class="nav-item">
+          <a class="nav-link active" href="item.html">Items</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="dashboard.html">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="recipient.html">Recipients</a>
+        </li>
+      </ul>
+
+      <!-- Profile -->
+      <ul class="navbar-nav ms-auto me-3">
+        <li class="nav-item">
+          <a class="nav-link" href="profile.html">
+            <i class="bi bi-person-circle h3"></i>
+          </a>
+        </li>
+      </ul>
+
+      <!-- darkmode -->
+      <div class="d-flex">
+        <button class="dark-mode-toggle" id="darkModeToggle" title="Toggle Dark Mode">
+          <i class="bi bi-moon-stars-fill" id="darkModeIcon"></i>
+</button>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="p-button">
+            <a href="#food">Food Essentials</a>
+            <a href="#TH">Toiletries & Hygiene</a>
+            <a href="#CN">Children Needs</a>
+            <a href="#HS">Household Supplies</a>
+            <a href="#cart">Your Basket <i class="bi bi-cart4"></i></a>
+        </div>
+  
+  <section id="food">
+  <div class="card-item">
+    <h3><b>Food Essentials</b></h3>
+    <div class="table-responsive-md">
+      <table class="table table-striped table-bordered">
+        <thead class="table-success">
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Beras Faiza 5kg</td>
+            <td>RM 35.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Beras Faiza 5kg', 35.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Minyak Saji 3kg</td>
+            <td>RM 30.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Minyak Saji 3kg', 30.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Gula Pasir 1kg</td>
+            <td>RM 5.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Gula Pasir 1kg', 5.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Tepung Gandum 1kg</td>
+            <td>RM 5.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Tepung Gandum 1kg', 5.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Mi Segera (Pack 5)</td>
+            <td>RM 6.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Mi Segera (Pack 5)', 6.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Roti Putih Gardenia</td>
+            <td>RM 3.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Roti Putih Gardenia', 3.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Biskut Marie (Family Pack)</td>
+            <td>RM 5.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Biskut Marie (Family Pack)', 5.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </section>
+  </div>
+  
+
+  
+  <section id="TH">
+  <div class="card-item">
+    <h3><b>Toiletries & Hygiene</b></h3>
+    <div class="table-responsive-md">
+      <table class="table table-striped table-bordered">
+        <thead class="table-success">
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sabun Mandi (Pack 4)</td>
+            <td>RM 25.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Sabun Mandi (Pack 4)', 25.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Syampu Safi 900ml</td>
+            <td>RM 10.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Syampu Safi 900ml', 10.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Ubat Gigi (Family Pack)</td>
+            <td>RM 10.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Ubat Gigi (Family Pack)', 10.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Berus Gigi (Set of 3)</td>
+            <td>RM 10.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Berus Gigi (Set of 3)', 10.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Tisu Toilet (Pack 10)</td>
+            <td>RM 5.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Tisu Toilet (Pack 10)', 5.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Sabun Basuh Pakaian 3kg</td>
+            <td>RM 15.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Sabun Basuh Pakaian 3kg', 15.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </section>
+  
+
+
+  <section id="CN">
+  <div class="card-item">
+    <h3><b>Children Needs</b></h3>
+    <div class="table-responsive-md">
+      <table class="table table-striped table-bordered">
+        <thead class="table-success">
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Susu Formula Bayi 2kg</td>
+            <td>RM 30.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Susu Formula Bayi 2kg', 30.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Lampin Pakai Buang (M/L)</td>
+            <td>RM 25.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Lampin Pakai Buang (M/L)', 25.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Buku Latihan (5 buah)</td>
+            <td>RM 10.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Buku Latihan (5 buah)', 10.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Pensel & Pen Set</td>
+            <td>RM 10.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Pensel & Pen Set', 10.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Beg Sekolah</td>
+            <td>RM 15.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Beg Sekolah', 15.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </section>
+  
+
+  
+  <section id="HS">
+  <div class="card-item">
+    <h3><b>Household Supplies</b></h3>
+    <div class="table-responsive-md">
+      <table class="table table-striped table-bordered">
+        <thead class="table-success">
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cecair Pencuci Pinggan 2L</td>
+            <td>RM 10.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Cecair Pencuci Pinggan 2L', 10.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Berus + Mop Lantai</td>
+            <td>RM 25.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Berus + Mop Lantai', 25.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Tuala Mandi (4 helai)</td>
+            <td>RM 10.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Tuala Mandi (4 helai)', 10.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Penyapu & Penyodok</td>
+            <td>RM 15.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Penyapu & Penyodok', 15.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+          <tr>
+            <td>Ridsect (2 botol)</td>
+            <td>RM 15.00</td>
+            <td><button class="btn btn-outline-success" onclick="addToCart('Ridsect (2 botol)', 15.00)"><i class="bi bi-bag-plus-fill"></i>  add</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </section>
+  
+  
+
+  <!-- cart section -->
+   
+    <section id="cart">
+      <div class="cart-card">
+        <h3><b>Your Basket <i class="bi bi-cart4"></i></b></h3>
+        <ul id="cart-items"></ul>
+        <h5 id="cart-total">Total: RM 0.00</h5>
+        <button class="btn btn-success w-100 mt-3"><a href="recipient.html"> Proceed</a></button>
+      </div>
+      </section>
+
+    <script>
+let cart = [];
+let total = 0;
+
+function addToCart(name, price) {
+  const item = cart.find(i => i.name === name);
+
+  if (item) {
+    item.quantity++;
+  } else {
+    cart.push({ name, price, quantity: 1 });
+  }
+
+  renderCart();
+}
+
+function renderCart() {
+  const cartList = document.getElementById("cart-items");
+  cartList.innerHTML = "";
+  total = 0;
+
+  cart.forEach((item, index) => {
+    total += item.price * item.quantity;
+
+    const li = document.createElement("li");
+    li.classList.add("d-flex", "justify-content-between", "align-items-center", "mb-2");
+
+    li.innerHTML = `
+      <span class="price-text">
+        ${item.name} × ${item.quantity}
+        <br>
+        <small>RM ${(item.price * item.quantity).toFixed(2)}</small>
+      </span>
+      <button class="btn btn-sm btn-danger" onclick="removeFromCart(${index})">
+        <i class="bi bi-trash3"></i>
+      </button>
+    `;
+
+    cartList.appendChild(li);
+  });
+
+  document.getElementById("cart-total").textContent =
+    "Total: RM " + total.toFixed(2);
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+</script>
+
+<!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- DarkMode JS -->
+    <script>
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      const darkModeIcon = document.getElementById('darkModeIcon');
+      const htmlElement = document.documentElement;
+
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      htmlElement.setAttribute('data-bs-theme', currentTheme);
+      updateIcon(currentTheme);
+      //toggle dark mode
+      darkModeToggle.addEventListener('click', () =>{
+        const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        htmlElement.setAttribute('data-bs-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcon(newTheme);
+      });
+
+      function updateIcon(theme){
+        if(theme === 'dark'){
+          darkModeIcon.className = 'bi bi-sun-fill';
+        } else {
+          darkModeIcon.className = 'bi bi-moon-stars-fill';
+        }
+      }
+
+      </script>
+
+    
+   <footer>
+         <p>&copy; 2025 Care Basket. All rights reserved.</p>
+    </footer>
+
+
+
+</body>
+</html>

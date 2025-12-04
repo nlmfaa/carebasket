@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Care Basket is a donation platform that connects donors with welfare homes, orphanages and elderly care centers to make giving easier and more meaningful.">
+  <meta name="keywords" content="care basket, donation, rumah kebajikan, rumah anak yatim, rumah orang tua">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Care Basket</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- Bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+</head>
+
+<style>
+
+body {
+  margin: 0; 
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  box-sizing: border-box;
+  background-color: #64a263;
+  
+}
+
+.content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url(image/bgindex.jpg) center/cover no-repeat;
+}
+.content h2 {
+  font-size: 50px;
+  font-weight: 900;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  transition: 0.5s;
+}
+
+.content h2:hover {
+  -webkit-text-stroke: 3px #FAA0A0;
+  color: transparent;
+}
+.centered {
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: none;
+}
+
+
+.login-btn {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  background-color: #FAA0A0;
+}
+
+.login-btn a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.logo-circle {
+  display: flex;
+  width: 200px;             
+  height: 200px;            
+  border-radius: 50%;       
+  overflow: hidden;         
+  margin: 150px 0px 0px 100px;      
+  border: 2px solid #FAA0A0;  
+}
+
+footer {
+    color: black;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 12px;
+  }
+  
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  justify-items: center;
+}
+
+.card {
+  background: #FFF5EE;
+  box-shadow: 0 4px 6px rgba(27, 25, 26, 0.555);
+  border-radius: 15px;
+  padding: 10px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+.card h2 {
+  font-size:40px;
+  color: #64a263;
+  margin-bottom: 10px;
+  text-align: center;
+    }
+ .container p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: black;
+  text-align: center;
+    }
+
+.card-step {
+  background: #FAA0A0;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(27, 25, 26, 0.555);
+    }
+    
+  @media (max-width: 768px) {
+
+  /* Center content properly */
+  .centered {
+    position: static;
+    transform: none;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  /* Resize heading */
+  .content h2 {
+    font-size: 32px;
+  }
+
+  .content h4 {
+    font-size: 16px;
+  }
+
+  .logo-circle {
+    width: 120px;
+    height: 120px;
+    margin: 20px auto;
+  }
+
+  .login-btn {
+    position: static;
+    display: block;
+    margin: 20px auto;
+  }
+
+  
+  .container {
+    padding: 10px;
+  }
+}
+
+
+</style>
+<body>
+<div class="content">
+  <div class="centered">
+    <div class="logo-circle">
+      <img src="image/logo.jpg" alt="logo">
+    </div>
+    
+    <h2>Donate Essential<br> 
+      With Love</h2>
+    <h4>"Every small contribution brings<br> 
+      hope to a home in need."</h4>
+</div>
+</div>
+<br>
+<br>
+
+
+<div class="container">
+  <div class="card">
+    <h2><b><i class="bi bi-basket3"></i> <u>About Care Basket</u> <i class="bi bi-basket3"></i></b></h2>
+<p>Care Basket was created to make the donation process easier, clearer, and more meaningful. <br>
+Charity homes provide a list of essential items they currently need, and donors can browse these items directly from the system.
+<br>By sponsoring the items listed, donors can ensure their contributions go exactly where they are needed most.</p>
+  </div>
+
+   
+<h1 style="text-align: center; margin-top: 40px;"><b>How It Works</b></h1>
+
+<p class="text-danger-emphasis" style="text-align: center;">Important! User must login first.</p>
+
+<div class="container mt-2">
+  <div class="row justify-content-center">
+
+
+    <div class="col-md-4">
+      <div class="card-step">
+        <div class="card-body text-center">
+          <div class="card-title"><b>Step 1 – Browse Items</b></div>
+          <p class="card-text">
+            View essential items added by the administrator based on charity home needs.
+          </p>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="col-md-4">
+      <div class="card-step h-100">
+        <div class="card-body text-center">
+          <div class="card-title"><b>Step 2 – Add to Basket <i class="bi bi-basket3"></i></b></div>
+          <p class="card-text">Select the items you wish to sponsor.</p>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="col-md-4">
+      <div class="card-step">
+        <div class="card-body text-center">
+          <div class="card-title"><b>Step 3 – Complete Donation</b></div>
+          <p class="card-text">
+            Proceed to checkout and confirm your sponsorship.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<button type="button" class="btn btn-outline-light login-btn"><a href="loginpage.html"><i class="bi bi-box-arrow-in-right"></i> Login</a></button>
+
+
+  
+        <footer>
+            <p>&copy; 2025 Care Basket. All rights reserved.</p>
+        </footer>
+    
+</body>
+
+</html>
