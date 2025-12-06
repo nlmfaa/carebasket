@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipients</title>
+
+    <!--Bootstrap 3 CSS--> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+</head>
+<style>
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    background-color: #FFF5EE;
+}
+
+.navbar-custom {
+    background-color: #64A263;
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+
+.nav-link.active{
+    color: whitesmoke !important;
+    font-weight: bold !important;
+}
+
+.nav-link i {
+    color: white;
+    vertical-align: middle;
+}
+
+
+.text-center{
+    color: black;
+    font-size: 25px;
+}
+
+
+.btn-outline-theme {
+  color: var(--bs-body-color);
+  border-color: var(--bs-border-color);
+}
+
+
+.btn-outline-theme:hover,
+.btn-outline-theme.active {
+    background-color: #FAA0A0;
+    color: white !important;
+}
+
+.product-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flip-box {
+    background-color: transparent;
+    width: 250px;
+    height: 240px;
+    border-radius: 10px;
+  }
+  
+.flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.9s;
+    transform-style: preserve-3d;
+}
+  
+.flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+    color: #93C572;
+}
+  
+.flip-box-front,
+.flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    border-radius: 10px;
+    pointer-events: none;
+}
+  
+.flip-box-front {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;     /* penting untuk overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.flip-box-front::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45); /* overlay gelap */
+    z-index: 1;
+    border-radius: 10px;
+}
+  
+.flip-box-back {
+    position: absolute;
+    font-size: 15px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1f541e;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    pointer-events: auto !important;
+}
+
+.flip-box-front p {
+    z-index: 2; /* pastikan text atas overlay */
+    position: relative;
+    font-weight: bold;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+.p-button a {
+  text-decoration: none; 
+  color: #333; 
+  font-weight: bold;
+  padding: 5px 10px;
+  display: inline-block;
+}
+
+.p-button {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+footer {
+    color: black;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 12px;
+  }
+
+  .dark-mode-toggle{
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit;
+    }
+
+    .dark-mode-toggle:hover{
+      opacity: 0.7;
+    }
+
+   
+[data-bs-theme="dark"] body {
+  background-color: black;
+}
+
+[data-bs-theme="dark"] .text-center,
+[data-bs-theme="dark"] p,
+[data-bs-theme="dark"] footer {
+  color: #f1f1f1;
+}
+
+[data-bs-theme="dark"] .p-button a {
+    color: #f1f1f1;
+}
+
+
+
+</style>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-custom" data-bs-theme="dark">
+  <div class="container-fluid">
+
+    <!-- Logo -->
+    <a class="navbar-brand ms-3" href="homepage.html">
+      <img src="image/logo.jpg" alt="carebasket"
+        style="border-radius:50%; object-fit:cover;"
+        width="55" height="55">
+    </a>
+
+    <!-- BURGER BUTTON -->
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarMenu"
+      aria-controls="navbarMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- COLLAPSIBLE CONTENT -->
+    <div class="collapse navbar-collapse" id="navbarMenu">
+
+      <!-- Menu -->
+      <ul class="navbar-nav ms-3">
+        <li class="nav-item">
+          <a class="nav-link active" href="item.html">Items</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="dashboard.html">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="recipient.html">Recipients</a>
+        </li>
+      </ul>
+      
+
+      <!-- Profile -->
+      <ul class="navbar-nav ms-auto me-3">
+        <li class="nav-item">
+          <a class="nav-link" href="profile.html">
+            <i class="bi bi-person-circle h3"></i>
+          </a>
+        </li>
+      </ul>
+
+      <!-- darkmode -->
+      <div class="d-flex">
+        <button class="dark-mode-toggle" id="darkModeToggle" title="Toggle Dark Mode">
+          <i class="bi bi-moon-stars-fill" id="darkModeIcon"></i>
+</button>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+<br><br>
+
+<div class="container">
+  <div class="row align-items-center">
+
+
+    <!-- FILTER BUTTONS -->
+<div class="p-button">
+    <button class="btn btn-outline-theme"><a href="#welfare">Welfare Home</a></button>
+    <button class="btn btn-outline-theme"><a href="#nursing">Nursing Home</a></button>
+    <button class="btn btn-outline-theme"><a href="#orphan">Orphanage</a></button>
+</div>
+<br>
+
+<!-- ALL -->
+
+<section id="welfare">
+    <div class="text-center mb-5">
+        <p><b>✿.｡.:*Welfare Home*:.｡.✿</b></p>       
+    </div>
+
+    <div class="product-container">
+
+        <!-- BOX 1 -->
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahkebajikan.jpg')">
+                    <p>Pusat Bantuan Komuniti</p>
+                </div>
+
+                <div class="flip-box-back">
+                    <p>Address: No. 12, Jalan Indah 4/5, Taman Cempaka Sari</p>
+                    <p>State: Kajang, Selangor</p>
+                    <p>Poscode: 43000</p>
+                    <a href="success.html?home=Welfare home:Pusat Bantuan Komuniti" class="btn btn-light mt-3">Select</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BOX 2 -->
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahkebajikan.jpg')">
+                    <p>Yayasan Kasih Rakyat</p>
+                </div>
+
+                <div class="flip-box-back">
+                    <p>Address: Lot 501, Batu 8, Jalan Utama Selayang</p>
+                    <p>State: Selayang, Selangor</p>
+                    <p>Poscode: 68100</p>
+                    <a href="success.html?home=Welfare home:Yayasan Kasih Rakyat" class="btn btn-light mt-3">Select</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BOX 3 -->
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahkebajikan.jpg')">
+                    <p>Rumah Sejahtera Harmoni</p>
+                </div>
+
+                <div class="flip-box-back">
+                   <p>Address: 22, Persiaran Hijau 10, Bandar Baru Serdang</p>
+                    <p>State: Seri Kembangan, Selangor</p>
+                    <p>Poscode: 43300</p>
+                    <a href="success.html?home=Welfare home:Rumah Sejahtera Harmoni" class="btn btn-light mt-3">Select</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BOX 4 -->
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahkebajikan.jpg')">
+                    <p>Asrama Kebajikan Murni</p>
+                </div>
+
+                <div class="flip-box-back">
+                   <p>Address: Tingkat 1, Kompleks Niagaa, Jalan Subang Tiga</p>
+                    <p>State: Subang Jaya, Selangor</p>
+                    <p>Poscode: 47600</p>
+                    <a href="success.html?home=Welfare home:Asrama Kebajikan Murni" class="btn btn-light mt-3">Select</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BOX 5 -->
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahkebajikan.jpg')">
+                    <p>Wisma Budi Penyayang</p>
+                </div>
+
+                <div class="flip-box-back">
+                   <p>Address: No. 8, Lorong Bukit Tinggi 2, Taman Damai</p>
+                    <p>State: Klang, Selangor</p>
+                    <p>Poscode: 41200</p>
+                    <a href="success.html?home=Welfare home:Wisma Budi Penyayang" class="btn btn-light mt-3">Select</a>
+                </div>
+
+           </div>
+          </div>
+      </div>
+          <br>
+      </section>
+
+ <!-- Nursing Home -->
+  <section id="nursing">
+<div class="text-center mb-5">
+        <p><b>✿.｡.:*Nursing Home*:.｡.✿</b></p>
+    </div>
+
+    <div class="product-container">
+
+        <!-- BOX 1 -->
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahorangtua.jpg')">
+                    <p>Pusat Jagaan Senior Bahagia</p>
+                </div>
+
+                <div class="flip-box-back">
+                    <p>Address: 15A, Jalan Kenanga, Seksyen 3</p>
+                    <p>State: Shah Alam, Selangor</p>
+                    <p>Poscode: 40000</p>
+                    <a href="success.html?home=Nursing Home:Pusat Jagaan Senior Bahagia" class="btn btn-light mt-3">Select</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BOX 2 -->
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahorangtua.jpg')">
+                    <p>Rumah Warga Emas Aman Damai</p>
+                </div>
+
+                <div class="flip-box-back">
+                    <p>Address: Lot 389, Lorong Senja, Mukim Damansara Perdana</p>
+                    <p>State: Petaling Jaya, Selangor</p>
+                    <p>Poscode: 47800</p>
+                    <a href="success.html?home=Nursing Home:Rumah Warga Emas Aman Damai" class="btn btn-light mt-3">Select</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BOX 3 -->
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahorangtua.jpg')">
+                    <p>Kediaman Emas Cemerlang</p>
+                </div>
+
+                <div class="flip-box-back">
+                   <p>Address: No. 99, Lebuhraya Perdana, Kampung Sungai Buloh</p>
+                    <p>State: Sungai Buloh, Selangor</p>
+                    <p>Poscode: 47000</p>
+                    <a href="success.html?home=Nursing Home:Kediaman Emas Cemerlang" class="btn btn-light mt-3">Select</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahorangtua.jpg')">
+                    <p>Rumah Penjagaan Harmoni Ria</p>
+                </div>
+
+                <div class="flip-box-back">
+                   <p>Address: Tingkat Bawah, Blok A, Pangsapuri Suria</p>
+                    <p>State: Ampang, Selangor</p>
+                    <p>Poscode: 68000</p>
+                    <a href="success.html?home=Nursing Home:Rumah Penjagaan Harmoni Ria" class="btn btn-light mt-3">Select</a>
+                </div>
+
+            </div>
+          </div>
+        </div>
+<br>
+  </section>
+
+<!-- Orphanages Home -->
+ <section id="orphan">
+<div class="text-center mb-5">
+        <p><b>✿.｡.:*Orphanages*:.｡.✿</b></p>
+    </div>
+
+    <div class="product-container">
+
+        <!-- BOX 1 -->
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahanakyatim.jpg')">
+                    <p>Asrama Anak Yatim Harapan</p>
+                </div>
+
+                <div class="flip-box-back">
+                    <p>Address: No. 5A, Lebuhraya Perdana 2, Bandar Baru Sejahtera</p>
+                    <p>State: Bangi, Selangor</p>
+                    <p>Poscode: 43650</p>
+                    <a href="success.html?home=Orphanages:Asrama Anak Yatim Harapan" class="btn btn-light mt-3">Select</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BOX 2 -->
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahanakyatim.jpg')">
+                    <p>Pusat Jagaan Kanak-Kanak Ceria</p>
+                </div>
+
+                <div class="flip-box-back">
+                    <p>Address: 33, Jalan Delima, Taman Sutera Indah</p>
+                    <p>State: Rawang, Selangor</p>
+                    <p>Poscode: 48000</p>
+                    <a href="success.html?home=Orphanages:Pusat Jagaan Kanak-Kanak Ceria" class="btn btn-light mt-3">Select</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BOX 3 -->
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahanakyatim.jpg')">
+                    <p>Rumah Kebahagiaan Anak-Anak</p>
+                </div>
+
+                <div class="flip-box-back">
+                   <p>Address: Lot 20, Jalan Sepuluh, Taman Bukit Indah</p>
+                    <p>State: Puchong, Selangor</p>
+                    <p>Poscode: 47100</p>
+                    <a href="success.html?home=Orphanages:Rumah Kebahagiaan Anak-Anak" class="btn btn-light mt-3">Select</a>
+                </div>
+
+            </div>
+        </div>
+
+         <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahanakyatim.jpg')">
+                    <p>Desa Anak Yatim Budi</p>
+                </div>
+
+                <div class="flip-box-back">
+                   <p>Address: Tingkat Atas, Kedai Tepi Jalan Enam</p>
+                    <p>State: Banting, Selangor</p>
+                    <p>Poscode: 42700</p>
+                    <a href="success.html?home=Orphanages:Desa Anak Yatim Budi" class="btn btn-light mt-3">Select</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahanakyatim.jpg')">
+                    <p>Sekolah Kasih Mesra</p>
+                </div>
+
+                <div class="flip-box-back">
+                   <p>Address: Lot 122, Kampung Aman, Jalan Sungai Besi</p>
+                    <p>State: Balakong, Selangor</p>
+                    <p>Poscode: 43200</p>
+                    <a href="success.html?home=Orphanages:Sekolah Kasih Mesra" class="btn btn-light mt-3">Select</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="flip-box">
+            <div class="flip-box-inner">
+
+                <div class="flip-box-front" style="background-image: url('image/rumahanakyatim.jpg')">
+                    <p>Perlindungan Kasih Sayang</p>
+                </div>
+
+                <div class="flip-box-back">
+                   <p>Address: No.1809, Persiaran Mutiara 5, Fasa 2</p>
+                    <p>State: Cyberjaya, Selangor</p>
+                    <p>Poscode: 63000</p>
+                    <a href="success.html?home=Orphanages:Perlindungan Kasih Sayang" class="btn btn-light mt-3">Select</a>
+                </div>
+          </div>
+          </div>
+        </div>
+<br>
+</div>
+</section>
+
+<!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- DarkMode JS -->
+    <script>
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      const darkModeIcon = document.getElementById('darkModeIcon');
+      const htmlElement = document.documentElement;
+
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      htmlElement.setAttribute('data-bs-theme', currentTheme);
+      updateIcon(currentTheme);
+      //toggle dark mode
+      darkModeToggle.addEventListener('click', () =>{
+        const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        htmlElement.setAttribute('data-bs-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcon(newTheme);
+      });
+
+      function updateIcon(theme){
+        if(theme === 'dark'){
+          darkModeIcon.className = 'bi bi-sun-fill';
+        } else {
+          darkModeIcon.className = 'bi bi-moon-stars-fill';
+        }
+      }
+
+      </script>
+
+<footer>
+         <p>&copy; 2025 Care Basket. All rights reserved.</p>
+    </footer>
+
+
+  
+</body>
+</html>
+
+

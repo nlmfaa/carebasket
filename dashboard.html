@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard CareBasket</title>
+
+    <!--Bootstrap 3 CSS--> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+
+</head>
+<style>
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    background-color: #FFF5EE;
+}
+
+.navbar-custom {
+    background-color: #64A263;
+    padding-left: 10px;
+    margin-bottom: 20px; 
+}
+
+.nav-link.active{
+    color: whitesmoke !important;
+    font-weight: bold !important;
+  }
+
+.nav-link i {
+    color: white;
+    vertical-align: middle;
+}
+
+.container {
+    border-radius: 15px;
+}
+
+.big-container {
+    background-color: rgb(21, 78, 21);
+    margin-top: 3px;
+    padding-top: 5px;
+}
+
+.icons {
+    color: rgb(70, 141, 70);
+}
+
+.card {
+    min-height: 140px !important;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    min-height: 130px;
+}
+
+.card-body div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.card-body div h5 {
+    font-size: 25px;
+    color: #555;
+}
+
+.card-body div p {
+    font-size: 30px;
+}
+
+.card-body .description{
+    font-size: 17px;     
+    color: #555;
+}
+
+.title-main {
+    color: rgb(194, 102, 117);
+    font-weight: 900;
+}
+
+.chart-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-left: 0 !important;
+}
+
+.chart-wrap {
+    height: 300px;
+    width: 100% !important;       /* KEKAL BESAR INI DI DESKTOP */
+    max-width: 100%;       /* TAPI BOLEH KECIL PADA PHONE */
+    margin: 0 auto;        /* CENTER */
+}
+
+canvas {
+    height: 260px;
+    width: 100% !important;
+}
+
+table {
+    font-size: 14px;
+}
+table th, table td {
+    padding: 6px 10px;
+}
+
+@media (max-width: 768px) {
+    .chart-wrap {
+        height: 250px;
+    }
+}
+
+html, body {
+    overflow-x: hidden;
+}
+footer {
+    color: black;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 12px;
+  }
+.section-hr {
+    height: 5px;
+    background-color: rgb(227, 92, 114);
+    border: none;
+    border-radius: 10px;
+    margin: 10px auto;       /* auto = center */
+    display: block;          /* paksa ikut width */
+}
+
+.dark-mode-toggle{
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit;
+    }
+
+    .dark-mode-toggle:hover{
+      opacity: 0.7;
+    }
+
+   
+[data-bs-theme="dark"] body {
+  background-color: black;
+}
+
+[data-bs-theme="dark"] footer {
+    color: #f1f1f1;
+}
+
+[data-bs-theme="dark"] p {
+  color: black;
+}
+</style>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-custom" data-bs-theme="dark">
+  <div class="container-fluid">
+
+    <!-- Logo -->
+    <a class="navbar-brand ms-3" href="homepage.html">
+      <img src="image/logo.jpg" alt="carebasket"
+        style="border-radius:50%; object-fit:cover;"
+        width="55" height="55">
+    </a>
+
+    <!-- BURGER BUTTON -->
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarMenu"
+      aria-controls="navbarMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- COLLAPSIBLE CONTENT -->
+    <div class="collapse navbar-collapse" id="navbarMenu">
+
+      <!-- Menu -->
+      <ul class="navbar-nav ms-3">
+        <li class="nav-item">
+          <a class="nav-link active" href="item.html">Items</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="dashboard.html">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="recipient.html">Recipients</a>
+        </li>
+      </ul>
+      
+
+      <!-- Profile -->
+      <ul class="navbar-nav ms-auto me-3">
+        <li class="nav-item">
+          <a class="nav-link" href="profile.html">
+            <i class="bi bi-person-circle h3"></i>
+          </a>
+        </li>
+      </ul>
+
+      <!-- darkmode -->
+      <div class="d-flex">
+        <button class="dark-mode-toggle" id="darkModeToggle" title="Toggle Dark Mode">
+          <i class="bi bi-moon-stars-fill" id="darkModeIcon"></i>
+</button>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<div class="big-container">
+    <div class="container">
+        <h1 class="fs-3 text-center mt-5" style="color: white;" style="font-size: 30px;">Daily Update<h1>
+
+        <div class="row mt-3">
+            <div class="col-md-4 mb-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div>
+                        <h5>Total Donation</h5>
+                        <p><b>1,520</b></p>
+                        <div class="description">Donation from organization</div>
+                        </div>
+                        <div class="icons">
+                            <i class="bi bi-box2-heart-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div>
+                        <h5>Total Donor</h5>
+                        <p><b>278</b></p>
+                        <div class="description">Donor from each organizations</div>
+                        </div>
+                        <div class="icons">
+                            <i class="bi bi-box2-heart-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+            <div class="col-md-4 mb-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div>
+                        <h5>Recipients</h5>
+                        <p><b>76</b></p>
+                        <div class="description">Recipients in Selangor</div>
+                        </div>
+                        <div class="icons">
+                            <i class="bi bi-box2-heart-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--tutup row mt-3-->
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-4 mb-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div>
+                        <h5>Sponsored</h5>
+                        <p><b>2,236</b></p>
+                        <div class="description">Sponsored items</div>
+                        </div>
+                        <div class="icons">
+                        <i class="bi bi-box2-heart-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 mb-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div>
+                        <h5>Items</h5>
+                        <p><b>3,430</b></p>
+                        <div class="description">Items available</div>
+                        </div>
+                        <div class="icons">
+                            <i class="bi bi-box2-heart-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> <!--tutup row center-->
+
+    </div> <!--container-->
+</div> <!--big container-->
+
+</div>
+
+<!--Chartjs-->
+<div class="title-container text-center mt-5">
+   <hr class="section-hr" style="width:1370px;">
+    <span class="title-main" style="font-size: 30px;">Donation</span>
+    <span class="title-sub" style="font-size: 30px;">by organizations</span>
+</div>
+
+<div class="row mt-4 justify-content-center">
+
+    <!-- Chart column -->
+    <div class="col-md-4">
+        <div class="chart-wrap bg-light p-3 rounded shadow-sm">
+            <canvas id="myChart1"></canvas>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx1 = document.getElementById('myChart1');
+
+  new Chart(ctx1, {
+    type: 'bar',
+    data: {
+      labels: ['Heritage Club', 'Hope Haven', 'Caring Hands', 'Give Back', 'Project Cares'],
+      datasets: [{
+        data: [275, 340, 370, 199, 336],
+        backgroundColor: [
+        '#ff6384',  // pink
+        '#36a2eb',  // biru
+        '#ffcd56',  // kuning
+        '#4bc0c0',  // cyan
+        '#9966ff'   // purple
+      ],
+      borderColor: '#000',
+      borderRadius: 15,       // BENTUK BAR
+        barThickness: 25,       // KETEBALAN BAR
+        maxBarThickness: 40     // AUTO SCALE
+    }]
+    },
+   options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }},
+      scales: { y: { beginAtZero: true } }
+    }
+});
+</script>
+</div>
+</div>
+
+<div class="title-container text-center mt-5">
+    <hr class="section-hr" style="width:1370px;">
+    <span class="title-main" style="font-size: 30px;">Donor</span>
+    <span class="title-sub" style="font-size: 30px;">by organizations</span>
+</div>
+
+<div class="row mt-4 justify-content-center">
+
+    <!-- Chart column -->
+    <div class="col-md-4">
+        <div class="chart-wrap bg-light p-3 rounded shadow-sm">
+            <canvas id="myChart2"></canvas>
+        </div>
+    </div>
+
+     <div class="col-md-6">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Organizations</th>
+                    <th>Donor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Heritage Club</td><td>2,961</td></tr>
+                <tr><td>Hope Haven</td><td>4,165</td></tr>
+                <tr><td>Caring Hands</td><td>75,546</td></tr>
+                <tr><td>Give Back</td><td>78</td></tr>
+                <tr><td>Project Cares</td><td>101,614</td></tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Total</th>
+                    <th>196,196</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx2 = document.getElementById('myChart2');
+
+  new Chart(ctx2, {
+    type: 'line',
+    data: {
+      labels: ['Heritage Club', 'Hope Haven', 'Caring Hands', 'Give Back', 'Project Cares'],
+      datasets: [{
+        data: [275, 240, 370, 104, 336],
+        fill: false,
+        borderColor: '#000',
+        tension: 0.1
+      }]
+    },
+     options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }},
+      scales: { y: { beginAtZero: true }}
+    }
+});
+</script>
+</div>
+</div>
+
+<div class="title-container text-center mt-5">
+    <hr class="section-hr" style="width:1370px;">
+    <span class="title-main" style="font-size: 30px;">Recipients</span>
+    <span class="title-sub" style="font-size: 30px;">in Selangor</span>
+</div>
+
+<div class="row mt-4 justify-content-center">
+
+    <!-- Chart column -->
+    <div class="col-md-4">
+        <div class="chart-wrap bg-light p-3 rounded shadow-sm">
+            <canvas id="myChart3"></canvas>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const ctx3 = document.getElementById('myChart3');
+
+  new Chart(ctx3, {
+    type: 'bar',
+    data: {
+      labels: ['Kajang', 'Bangi', 'Cyberjaya', 'Shah Alam', 'Selayang', 'Ampang', 'Klang'],
+      datasets: [{
+        data: [8, 4, 6, 15, 22, 32, 10],
+        backgroundColor: [
+        '#2B5E2E',  // hijau 
+        '#2B5E2E',  // hijau
+        '#2B5E2E',  // hijau
+        '#2B5E2E',  // hijau
+        '#2B5E2E',  // hijau
+        '#2B5E2E',  // hijau
+        '#2B5E2E'  // hijau
+      ],
+      borderColor: '#000',
+      borderRadius: 15,       // BENTUK BAR
+        barThickness: 15,       // KETEBALAN BAR
+        maxBarThickness: 40     // AUTO SCALE
+    }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }},
+      scales: { y: { beginAtZero: true }}
+    }
+});
+</script>
+</div>
+</div>
+
+<div class="title-container text-center mt-5">
+    <hr class="section-hr" style="width:1370px;">
+    <span class="title-main" style="font-size: 30px;">Sponsored</span>
+    <span class="title-sub" style="font-size: 30px;">items</span>
+</div>
+
+<div class="row mt-4 justify-content-center">
+
+    <!-- Chart column -->
+    <div class="col-md-4">
+        <div class="chart-wrap bg-light p-3 rounded shadow-sm">
+            <canvas id="myChart4"></canvas>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const ctx4 = document.getElementById('myChart4');
+
+new Chart(ctx4, {
+    type: 'pie',
+    data: {
+        labels: ['Speedmart', 'Jaya Grocer', 'Village Grocer', 'Econsave', 'Mydin', 'Lotus'],
+        datasets: [{
+            data: [45, 46, 39, 120, 250, 117],
+            backgroundColor: [
+                '#FCC6BB',
+                '#66BD97',
+                '#A6493D',
+                '#668CBD',
+                '#577A45',
+                '#66B7BD'
+            ],
+            borderColor: '#000'
+        }]
+    },
+    options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: true,
+        position: 'right',
+        labels: { 
+            usePointStyle: true, 
+            pointStyle: 'triangle', 
+            font: { 
+                size: 15
+      }
+    }
+  }
+    }}
+});
+</script>
+</div>
+</div>
+
+<div class="title-container text-center mt-5">
+    <hr class="section-hr" style="width:1370px;">
+    <span class="title-main" style="font-size: 30px;">Stock</span>
+    <span class="title-sub" style="font-size: 30px;">items</span>
+</div>
+
+<div class="row text-center justify-content-center mt-4">
+
+    <!-- Chart 1 -->
+    <div class="col-12 col-md-4 mb-3">
+        <div class="chart-wrap bg-light p-3 rounded shadow-sm">
+            <canvas id="myChart5"></canvas>
+        </div>
+    </div>
+
+    <!-- Chart 2 -->
+    <div class="col-12 col-md-4 mb-3">
+        <div class="chart-wrap bg-light p-3 rounded shadow-sm">
+            <canvas id="myChart6"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="row text-center justify-content-center mt-4">
+
+    <!--Chart 3-->
+    <div class="col-12 col-md-4 mb-3">
+        <div class="chart-wrap bg-light p-3 rounded shadow-sm">
+            <canvas id="myChart7"></canvas>
+        </div>
+    </div>
+
+    <!--Chart 4-->
+    <div class="col-12 col-md-4 mb-3">
+        <div class="chart-wrap bg-light p-3 rounded shadow-sm">
+            <canvas id="myChart8"></canvas>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const ctx5 = document.getElementById('myChart5');
+
+new Chart(ctx5, {
+  type: 'bar',
+  data: {
+    labels: ['Beras Faiza', 'Minyak Saji', 'Gula Pasir', 'Tepung Gandum', 'Mi Segera', 'Roti Putih Gardenia', 'Biskut Marie'],
+    datasets: [{
+      label: 'Food essentials',
+      data: [12, 19, 103, 225, 222, 323, 270],
+      backgroundColor: '#7A5AA6',
+      borderRadius: 8
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: { beginAtZero: true, max: 400, ticks: { stepSize: 50 }}
+    }
+  }
+});
+
+const ctx6 = document.getElementById('myChart6');
+
+new Chart(ctx6, {
+  type: 'bar',
+  data: {
+    labels: ['Sabun mandi', 'Syampu Safi', 'Ubat gigi', 'Berus gigi', 'Tisu Toilet', 'Sabun basuh baju'],
+    datasets: [{
+      label: 'Toileteries & hygiene',
+      data: [120, 219, 27, 125, 22, 323],
+      backgroundColor: '#B99BE0',
+      borderRadius: 8
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: { beginAtZero: true, max: 400, ticks: { stepSize: 50 }}
+    }
+  }
+});
+
+const ctx7 = document.getElementById('myChart7');
+
+new Chart(ctx7, {
+  type: 'bar',
+  data: {
+    labels: ['Susu bayi', 'Lampin bayi', 'Buku latihan', 'Pensel & pen', 'Beg sekolah'],
+    datasets: [{
+      label: 'Children needs',
+      data: [230, 219, 56, 73, 88],
+      backgroundColor: '#DB9BE0',
+      borderRadius: 8
+    }]
+  },
+ options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: { beginAtZero: true, max: 400, ticks: { stepSize: 50 }}
+    }
+  }
+});
+
+const ctx8 = document.getElementById('myChart8');
+
+new Chart(ctx8, {
+  type: 'bar',
+  data: {
+    labels: ['Pencuci pinggan', 'Mop & berus', 'Tuala mandi', 'Penyapu & penyodok', 'Ridsect'],
+    datasets: [{
+      label: 'Household supplies',
+      data: [230, 119, 186, 218, 128],
+      backgroundColor: '#E09BC2',
+      borderRadius: 8
+    }]
+  },
+ options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: { beginAtZero: true, max: 400, ticks: { stepSize: 50 }}
+    }
+  }
+});
+
+</script>
+</div>
+</div>
+
+<!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- DarkMode JS -->
+    <script>
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      const darkModeIcon = document.getElementById('darkModeIcon');
+      const htmlElement = document.documentElement;
+
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      htmlElement.setAttribute('data-bs-theme', currentTheme);
+      updateIcon(currentTheme);
+      //toggle dark mode
+      darkModeToggle.addEventListener('click', () =>{
+        const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        htmlElement.setAttribute('data-bs-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcon(newTheme);
+      });
+
+      function updateIcon(theme){
+        if(theme === 'dark'){
+          darkModeIcon.className = 'bi bi-sun-fill';
+        } else {
+          darkModeIcon.className = 'bi bi-moon-stars-fill';
+        }
+      }
+
+      </script>
+
+<footer>
+         <p>&copy; 2025 Care Basket. All rights reserved.</p>
+    </footer>
+
+
+
+</body>
+</html>
